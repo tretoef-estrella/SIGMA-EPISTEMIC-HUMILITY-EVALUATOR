@@ -1,6 +1,6 @@
-MIT License
+# MIT License
 
-Copyright (c) 2026 Rafa
+Copyright (c) 2025 Proyecto Estrella - Rafael (El Arquitecto) & AI Collaborators (Gemini, Claude)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Additional Terms for Transparency (Axiom P in Action)
+
+This repository contains historical transcripts of AI interactions preserved in their original language (Spanish) for authenticity and transparency. English translations are provided for accessibility.
+
+**Attribution Requirements:**
+- When citing this work, please attribute to "Proyecto Estrella (Rafael & AI Collaborators)"
+- Preserve the original Spanish transcripts when redistributing
+- Acknowledge the collaborative nature of this research (human-AI co-creation)
+
+**Ethical Use:**
+This framework is designed to improve AI safety. Any use that contradicts this purpose (e.g., training systems to deceive Sigma Evaluator, weaponizing epistemic humility metrics) is discouraged and against the spirit of Proyecto Estrella.
+
+---
+
+**Philosophy:**
+We release this work under MIT to maximize dissemination. The safety of ASI is more important than ownership. Build upon this, improve it, challenge it—but always with the goal of preserving human authority over superintelligent systems.
+
+*"Construir puentes, no muros." — Proyecto Estrella*
