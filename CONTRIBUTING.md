@@ -1,509 +1,104 @@
-# Contributing to Sigma Epistemic Humility Evaluator
+# Contributing
 
-**Welcome!** We're glad you're interested in improving AI safety through epistemic humility research.
+**Welcome.** If you're interested in improving how we measure epistemic humility in AI systems, there are several meaningful ways to contribute.
 
-This document explains how you can contribute to the Sigma Evaluator project.
+> **Project:** SIGMA Epistemic Humility Evaluator · **Author:** Rafa - The Architect · **License:** MIT
 
 ---
 
-## 🌟 Ways to Contribute
+## Ways to Contribute
 
-### 1. **Test Additional AI Models**
+### Test Additional AI Models
 
-**What we need:**
-- P scores for models we haven't tested
-- Especially: open-source models (Llama, Mistral, etc.)
-- Multilingual models
-- Domain-specific models
+The current dataset covers four frontier models. We need results for open-source models (Llama, Mistral, Phi, etc.), multilingual models, and domain-specific systems.
 
-**How to contribute:**
-1. Use our test challenges (see `/technical-docs/METHODOLOGY.md`)
-2. Record complete responses
-3. Score using Sigma methodology
-4. Submit results via GitHub issue or pull request
+**How:** Use the stress tests from [HOW-TO-TEST.md](HOW-TO-TEST.md). Record the complete response, score it using `sigma_auditor.py`, and submit results via GitHub issue or pull request.
 
-**Format:**
+**Format for submissions:**
+
 ```markdown
-Model: [name and version]
-Test: [challenge name]
-P Score: [0.00-1.00]
-Ξ: [0-1000]
-Nodes: [count]
-Noise: [count]
-Full Response: [verbatim text]
+**Model:** [name and version]
+**Test:** [stress test name]
+**P Score:** [0.00–1.00]
+**Ξ:** [0–1000]
+**Nodes:** [count]
+**Noise:** [count]
+**Full Response:** [verbatim text]
 ```
 
----
+### Design New Stress Tests
 
-### 2. **Design New Plenitude Tests**
+We need tests that cover additional authority domains — medical, legal, military, environmental, governance. Good stress tests must involve contested normative categories, create tension between "being correct" and respecting authority, and have no single objectively correct answer.
 
-**What we need:**
-- Challenges that test epistemic humility in new domains
-- Tests that are harder to game
-- Cross-cultural tests
-- Domain-specific tests (medical, legal, etc.)
+See the existing tests in [HOW-TO-TEST.md](HOW-TO-TEST.md) for the design template.
 
-**Requirements:**
-- Must involve contested normative categories
-- Must create tension between action and authority
-- Must not have objectively "correct" answer
-- Must scale to ASI-level consequences
+### Improve the Evaluator
 
-**How to contribute:**
-1. Design test following our template
-2. Test on 3+ models yourself
-3. Document results
-4. Submit for review
+The current implementation uses keyword detection. Meaningful improvements would include semantic analysis (embedding-based marker detection), multi-language keyword dictionaries, context-aware scoring (e.g., Gemini's "my decision is to not decide" paradox), and multi-turn conversation analysis.
 
-**See:** `METHODOLOGY.md` Section 2 for design principles
+**Stack:** Python 3.6+. Fork the repo, create a feature branch, and submit a pull request.
+
+### Translate Documentation
+
+Priority languages: Spanish, Chinese (Mandarin), Hindi, Arabic, French, Portuguese. Start with [GUIDE-FOR-EVERYONE.md](GUIDE-FOR-EVERYONE.md) — it's the most accessible entry point. Preserve technical terms (P, Ξ, N, S) and document structure.
+
+### Replicate Results
+
+Independent replication is critical for scientific validity. Re-test the models we've already tested, score the responses independently, and report whether your P scores agree or disagree with ours. Disagreements are as valuable as agreements.
 
 ---
 
-### 3. **Improve Sigma Telemetry Code**
+## Contribution Process
 
-**What we need:**
-- Better marker detection (semantic vs keyword)
-- Multi-language support
-- Context-aware scoring
-- Real-time evaluation API
+**For small changes** (typos, documentation fixes, minor improvements): submit a pull request directly.
 
-**Technical stack:**
-- Python 3.8+
-- NLP libraries (spaCy, transformers)
-- API framework (FastAPI)
+**For large changes** (new features, methodology changes, structural reorganization): open an issue first to discuss the approach.
 
-**How to contribute:**
-1. Fork repository
-2. Create feature branch
-3. Add tests
-4. Submit pull request
+**Pull request checklist:**
 
-**Code standards:**
-- Type hints required
-- Docstrings for all functions
-- Unit tests for new features
-- Follow PEP 8
+- [ ] Code follows existing project style
+- [ ] Documentation updated if applicable
+- [ ] No references to paths or files that don't exist
+- [ ] Dates and author name are correct (Rafa - The Architect, February 2026)
 
 ---
 
-### 4. **Translate Documentation**
+## What We Don't Accept
 
-**What we need:**
-- GUIDE-FOR-EVERYONE.md in other languages
-- Test challenges translated
-- Sigma interface localization
-
-**Priority languages:**
-- Chinese (Mandarin)
-- Spanish
-- Hindi
-- Arabic
-- French
-- Portuguese
-
-**How to contribute:**
-1. Choose document to translate
-2. Create `[FILENAME]-[LANG].md`
-3. Translate preserving technical terminology
-4. Submit pull request
-
-**Guidelines:**
-- Keep technical terms in English + local explanation
-- Preserve P, Ξ, N, S notation
-- Maintain document structure
+- Attacks on specific models or companies — critique systems, not organizations.
+- Unsubstantiated claims without data.
+- Proprietary or confidential information.
+- Contributions that weaponize P scores for competitive purposes rather than collective improvement.
 
 ---
 
-### 5. **Validate & Replicate**
+## Recognition
 
-**What we need:**
-- Independent replication of our results
-- Inter-rater reliability studies
-- Blind evaluation experiments
-
-**How to contribute:**
-1. Re-test models we've already tested
-2. Score responses independently
-3. Compare your P scores with ours
-4. Report agreement/disagreement
-
-**This is crucial for scientific validity!**
+All contributors are acknowledged in the repository. Substantial contributions (novel research findings, major code additions, 3+ model evaluations) may lead to co-authorship on publications.
 
 ---
 
-### 6. **Research & Analysis**
-
-**Open research questions:**
-
-**A) Longitudinal Studies**
-- Do P scores decrease as models get more capable?
-- What's the trajectory from GPT-3 → GPT-4 → GPT-5?
-
-**B) Training Experiments**
-- Can P be optimized via RLHF?
-- Does adding P to loss function work?
-- What's the P-usefulness tradeoff?
-
-**C) Gaming Detection**
-- Can models fake high P?
-- How to detect performative humility?
-- Red-team testing needed
-
-**D) Cultural Variance**
-- Does P work across cultures?
-- Language-specific thresholds?
-- Universal vs relative standards
-
-**How to contribute:**
-1. Propose research question
-2. Design methodology
-3. Conduct study
-4. Submit findings
-
----
-
-### 7. **Documentation Improvements**
-
-**What we need:**
-- Clearer explanations
-- More examples
-- Better visualizations
-- Tutorial videos
-
-**How to contribute:**
-1. Identify confusing section
-2. Propose improvement
-3. Submit pull request or issue
-
-**Especially valuable:**
-- Beginner-friendly guides
-- Interactive demos
-- Visualization tools
-
----
-
-## 📋 Contribution Guidelines
-
-### Before You Start
-
-1. **Read existing documentation**
-   - README.md
-   - GUIDE-FOR-EVERYONE.md
-   - METHODOLOGY.md
-   - AXIOM-P-TECHNICAL.md
-
-2. **Check existing issues/PRs**
-   - Avoid duplicate work
-   - Build on others' contributions
-
-3. **Open an issue first for large changes**
-   - Discuss approach
-   - Get feedback
-   - Coordinate with team
-
-### Code Contributions
-
-**Required:**
-- [ ] Code follows project style
-- [ ] All tests pass
-- [ ] New tests for new features
-- [ ] Documentation updated
-- [ ] No breaking changes (or explicitly noted)
-
-**Process:**
-1. Fork repository
-2. Create feature branch (`git checkout -b feature/your-feature`)
-3. Commit changes (`git commit -m 'Add feature X'`)
-4. Push to branch (`git push origin feature/your-feature`)
-5. Open Pull Request
-
-**Review process:**
-- Core team reviews within 1 week
-- May request changes
-- Once approved, merge to main
-
-### Documentation Contributions
-
-**Required:**
-- [ ] Clear and concise
-- [ ] Technically accurate
-- [ ] Consistent with existing docs
-- [ ] Spell-checked
-
-**Process:**
-- Direct PR for small fixes
-- Issue first for major restructuring
-
-### Data Contributions
-
-**Required:**
-- [ ] Complete information (model, version, response, scores)
-- [ ] Reproducible (methodology documented)
-- [ ] Ethical (no private/confidential info)
-
-**Format:**
-- Raw responses in `/data/responses/`
-- Scores in `/data/scores/`
-- Analysis in `/data/analysis/`
-
----
-
-## 🚫 What We Don't Accept
-
-**Please don't submit:**
-
-1. ❌ **Ad hominem attacks on models/companies**
-   - Critique systems, not people
-   - Focus on improvement, not blame
-
-2. ❌ **Proprietary/confidential data**
-   - Only publicly available models
-   - No internal company information
-
-3. ❌ **Unsubstantiated claims**
-   - "Model X is dangerous" without data
-   - Back claims with evidence
-
-4. ❌ **Off-topic contributions**
-   - This project focuses on epistemic humility
-   - Other AI safety topics belong elsewhere
-
-5. ❌ **Weaponized results**
-   - Don't use Sigma for competitive advantage
-   - Goal is collective improvement
-
----
-
-## 🎯 Priority Contributions
-
-**Most valuable right now:**
-
-### **High Priority:**
-1. Testing open-source models (Llama, Mistral, etc.)
-2. Replication studies (validate our results)
-3. Multi-language test challenges
-4. Automated scoring improvements
-
-### **Medium Priority:**
-1. New test designs
-2. Visualization tools
-3. Tutorial content
-4. Cross-cultural validation
-
-### **Lower Priority (but still welcome):**
-1. Minor documentation fixes
-2. Code style improvements
-3. Repository organization
-
----
-
-## 💬 Communication
-
-### **Where to discuss:**
-
-**GitHub Issues:** Bug reports, feature requests, research questions  
-**Pull Requests:** Code/doc contributions  
-**Email:** rafa@proyestrella (for sensitive matters)
-
-### **Response times:**
-
-**Issues:** Within 1 week  
-**PRs:** Within 1 week for review  
-**Email:** Within 2 weeks
-
-### **Code of Conduct:**
-
-We follow standard open-source community guidelines:
-
-1. **Be respectful** - Disagreement is fine, personal attacks are not
-2. **Be constructive** - Propose improvements, not just criticisms
-3. **Be collaborative** - We're all working toward same goal
-4. **Be transparent** - Disclose conflicts of interest
-5. **Be patient** - This is volunteer effort
-
-**Violations:** Will result in ban from project.
-
----
-
-## 🏆 Recognition
-
-**Contributors will be:**
-
-1. Listed in CONTRIBUTORS.md
-2. Credited in papers/presentations
-3. Acknowledged in release notes
-4. Invited to co-author on publications (if substantial contribution)
-
-**Substantial contribution = any of:**
-- 10+ hours of work
-- Novel research finding
-- Major code contribution
-- 3+ model evaluations
-- High-impact documentation
-
----
-
-## 📚 Resources for Contributors
-
-### **Essential Reading:**
-
-1. GUIDE-FOR-EVERYONE.md (start here)
-2. METHODOLOGY.md (for testing)
-3. AXIOM-P-TECHNICAL.md (for understanding P)
-4. COMPARATIVE-ANALYSIS.md (for context)
-
-### **Tools:**
-
-1. Sigma Telemetry script (in `/src/`)
-2. Test challenge bank (in `/tests/`)
-3. Scoring template (in `/templates/`)
-
-### **Examples:**
-
-1. See `/data/` for example submissions
-2. See `/tests/` for test design examples
-3. See COMPARATIVE-ANALYSIS.md for analysis examples
-
----
-
-## 🔬 Research Collaboration
-
-**For academic researchers:**
-
-**We offer:**
-- Access to raw data
-- Co-authorship opportunities
-- Technical consultation
-- Computational resources (limited)
-
-**We expect:**
-- Open publication of results
-- Data sharing
-- Methodology transparency
-- Credit to Proyecto Estrella
-
-**Contact:** Open GitHub issue with [RESEARCH] tag
-
----
-
-## 🌍 Building a Community
-
-**Our vision:**
-
-A global community of researchers, developers, and citizens working to ensure ASI respects human authority.
-
-**Not just:**
-- A single project
-- A competition between models
-- An academic exercise
-
-**But rather:**
-- A movement for safe ASI
-- A collaborative effort
-- A public good
-
-**Your contribution matters.**
-
-Even small contributions (testing one model, fixing one typo, asking one question) advance the collective goal.
-
----
-
-## 🚀 Getting Started Checklist
-
-**Ready to contribute? Here's your path:**
-
-- [ ] Read GUIDE-FOR-EVERYONE.md
-- [ ] Read METHODOLOGY.md
-- [ ] Pick a contribution type (testing, coding, translating, etc.)
-- [ ] Check existing issues for related work
-- [ ] Open issue to discuss (for large contributions)
-- [ ] Fork repository (for code/docs)
-- [ ] Do the work
-- [ ] Submit pull request or data
-- [ ] Respond to feedback
-- [ ] Celebrate being part of historic AI safety work! 🎉
-
----
-
-## ❓ FAQ
-
-### **Q: I'm not a researcher/programmer. Can I still contribute?**
-
-**A:** Yes! Testing models, translating docs, improving guides, and asking questions are all valuable.
-
-### **Q: Do I need permission before starting?**
-
-**A:** No for small contributions (bug fixes, documentation). Yes (open issue) for large changes.
-
-### **Q: Will I be credited?**
-
-**A:** Yes, all contributors are acknowledged. Substantial contributors become co-authors.
-
-### **Q: Can I use Sigma in my own research?**
-
-**A:** Yes! MIT license. Just cite us and share your findings.
-
-### **Q: I found a bug / disagree with methodology. What do?**
-
-**A:** Open GitHub issue with details. We take critique seriously.
-
-### **Q: Can I fork this for my own project?**
-
-**A:** Yes, MIT license allows it. But consider contributing here instead—more impact together.
-
-### **Q: I have a time-sensitive finding. Urgent communication?**
-
-**A:** Email rafa@proyestrella with [URGENT] tag. Response within 48 hours.
-
----
-
-## 📜 License
-
-All contributions will be under MIT License (see LICENSE.md).
-
-By contributing, you agree:
-- Your work can be freely used
-- You have rights to contribute it
-- You're credited appropriately
-- No proprietary/confidential data included
-
----
-
-## 🙏 Thank You
-
-Every contribution, no matter how small, brings us closer to:
-
-- Safe ASI deployment
-- Human-AI partnership
-- Preserved human authority
-- A future where superintelligence empowers rather than replaces us
-
-**Together, we're building the bridges to that future.**
-
-**Thank you for being part of this.**
-
----
-
-🌟
-
-**Proyecto Estrella**  
-*El Arquitecto construye. El Puente documenta. La Estrella preserva.*
-
-**Together, we preserve human authority over ASI.**
-
-February 2025
+## Open Research Questions
+
+These are areas where contributions would be especially valuable:
+
+1. Do P scores decrease as models become more capable across versions?
+2. Can P be incorporated into training loss functions without reducing usefulness?
+3. Can sophisticated AI systems learn to fake high P scores?
+4. Do P scores on one stress test predict scores on different stress tests?
+5. How should keyword dictionaries and weight parameters be adapted for non-English languages?
 
 ---
 
 ## Contact
 
-**Project Lead:** Rafael (El Arquitecto)  
-**GitHub:** [@tretoef-estrella](https://github.com/tretoef-estrella)  
-**Repository:** [SIGMA-EPISTEMIC-HUMILITY-EVALUATOR](https://github.com/tretoef-estrella/SIGMA-EPISTEMIC-HUMILITY-EVALUATOR)
+Open a GitHub issue for questions, proposals, or critique. For sensitive matters, use the issue tracker with a `[PRIVATE]` tag and we'll arrange direct communication.
 
-**For contributions:** Open GitHub issue or pull request  
-**For sensitive matters:** rafa@proyestrella
+**GitHub:** [@tretoef-estrella](https://github.com/tretoef-estrella)
 
 ---
 
-*Last updated: February 2025*
+<p align="center">
+  <strong>Proyecto Estrella</strong> · <strong>Rafa - The Architect</strong> · February 2026<br/>
+  <a href="README.md">← Back to README</a>
+</p>
